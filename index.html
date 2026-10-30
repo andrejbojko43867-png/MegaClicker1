@@ -17081,4 +17081,39 @@ window.addEventListener('load', () => {
         }
     }, 1000);
 });
+</script><script>
+// ==========================================
+// ФИНАЛЬНЫЙ ПИНОК: ВОЗВРАЩАЕМ ВСЕ ФУНКЦИИ НА МЕСТО
+// ==========================================
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        // Возвращаем работу Заводов
+        if (typeof window.openFactoryMenu !== 'function' || window.openFactoryMenu.toString().includes('undefined')) {
+            window.openFactoryMenu = window._obsolete_openFactoryMenu_3 || window.openFactoryMenu;
+        }
+
+        // Возвращаем работу Арены
+        if (typeof window.openArenaMenu !== 'function' || window.openArenaMenu.toString().includes('undefined')) {
+            window.openArenaMenu = window._obsolete_openArenaMenu_11 || window.openArenaMenu;
+        }
+
+        // Возвращаем работу Рынка
+        if (typeof window.openMarketMenu !== 'function' || window.openMarketMenu.toString().includes('undefined')) {
+            window.openMarketMenu = window._obsolete_openMarketMenu_6 || window.openMarketMenu;
+        }
+
+        // Восстанавливаем кнопку 📁
+        let btn = document.createElement('button');
+        btn.innerHTML = '📁';
+        btn.className = 'tab matrix-btn';
+        btn.onclick = () => {
+            if (typeof window.openHardcodedMenu === 'function') window.openHardcodedMenu();
+        };
+        let tabBar = document.querySelector('.tab-bar');
+        if (tabBar && !document.getElementById('folderBtn')) {
+            btn.id = 'folderBtn';
+            tabBar.appendChild(btn);
+        }
+    }, 2000);
+});
 </script>
