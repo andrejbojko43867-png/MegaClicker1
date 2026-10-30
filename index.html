@@ -17082,3 +17082,175 @@ window.addEventListener('load', () => {
     }, 1000);
 });
 </script>
+    <script>
+// ==========================================
+// ПОЛНОЕ ВОССТАНОВЛЕНИЕ МЕНЮ 📁 (ВСЕ 18 КНОПОК)
+// ==========================================
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        // 1. Возвращаем кнопку 📁 в нижнюю панель
+        let tabBar = document.querySelector('.tab-bar');
+        if (tabBar && !document.getElementById('folderBtn')) {
+            let btn = document.createElement('button');
+            btn.innerHTML = '📁';
+            btn.className = 'tab matrix-btn';
+            btn.id = 'folderBtn';
+            btn.onclick = () => {
+                if (typeof window.openHardcodedMenu === 'function') window.openHardcodedMenu();
+            };
+            tabBar.appendChild(btn);
+        }
+
+        // 2. ПЕРЕРИСОВЫВАЕМ МЕНЮ С НУЛЯ (Все 18 кнопок)
+        window.openHardcodedMenu = function() {
+            let container = document.getElementById('hardcoded-more-menu');
+            if (!container) return;
+
+            let grid = container.querySelector('div[style*="grid-template-columns"]');
+            if (!grid) return;
+
+            // Очищаем старые кнопки
+            grid.innerHTML = '';
+
+            // Список ВСЕХ функций, которые мы делали
+            const buttons = [
+                { name: 'Арена', icon: '🥊', fn: 'openArenaMenu' },
+                { name: 'Заводы', icon: '🏭', fn: 'openFactoryMenu' },
+                { name: 'Battle Pass', icon: '🎟️', fn: 'openBattlePass' },
+                { name: 'Карточки', icon: '🃏', fn: 'openCardsMenu' },
+                { name: 'Квесты', icon: '📜', fn: 'openQuestMenu' },
+                { name: 'Казино', icon: '🎰', fn: 'openCasinoMenu' },
+                { name: 'Рынок', icon: '💱', fn: 'openMarketMenu' },
+                { name: 'Дерево', icon: '🌳', fn: 'openTreeMenu' },
+                { name: 'Лига', icon: '🏆', fn: 'openLeagueMenu' },
+                { name: 'PvP', icon: '⚔️', fn: 'openPvpMenu' },
+                { name: 'Бонус', icon: '🎁', fn: 'openBonusMenu' },
+                { name: 'Друзья', icon: '👥', fn: 'openFriendsMenu' },
+                { name: 'Скины', icon: '🎨', fn: 'openSkinsMenu' },
+                { name: 'Стата', icon: '📊', fn: 'openStatsMenu' },
+                { name: 'Ачивки', icon: '🏆', fn: 'openAchievementsMenu' },
+                { name: 'Банк', icon: '🏦', fn: 'openBankMenu' },
+                { name: 'Колесо', icon: '🎲', fn: 'openWheelMenu' },
+                { name: 'Инвентарь', icon: '🎒', fn: 'openInventoryMenu' },
+                { name: 'Дроны', icon: '🛸', fn: 'openDronesMenu' },
+                { name: 'Лаборатория', icon: '🧬', fn: 'openLabMenu' }
+            ];
+
+            // Рисуем каждую кнопку
+            buttons.forEach(btn => {
+                let b = document.createElement('button');
+                b.style.cssText = 'padding:15px; border-radius:10px; font-size:12px; font-weight:bold; display:flex; flex-direction:column; align-items:center; gap:5px; height:100px; justify-content:center; background: #000 !important; color: #0f0 !important; border: 2px solid #0f0 !important; cursor:pointer;';
+                b.innerHTML = `<span style="font-size:28px;">${btn.icon}</span><span style="text-align:center;">${btn.name}</span>`;
+                
+                b.onclick = function(e) {
+                    e.preventDefault();
+                    // Пытаемся вызвать функцию, если она есть
+                    if (typeof window[btn.fn] === 'function') {
+                        window[btn.fn]();
+                    } else {
+                        // Если функция переименована (как у нас было), ищем её
+                        let obsoleteName = '_obsolete_' + btn.fn + '_' + Math.floor(Math.random()*10); // Костыль, но попробуем найти
+                        // Просто покажем уведомление, если не нашли
+                        showToast('Раздел ' + btn.name + ' в разработке или скрыт.');
+                    }
+                };
+                grid.appendChild(b);
+            });
+
+            container.style.display = 'flex';
+        };
+
+        // 3. Восстанавливаем старые функции, если они сломались
+        if (typeof window.openFactoryMenu !== 'function') window.openFactoryMenu = window._obsolete_openFactoryMenu_3;
+        if (typeof window.openArenaMenu !== 'function') window.openArenaMenu = window._obsolete_openArenaMenu_11;
+        if (typeof window.openMarketMenu !== 'function') window.openMarketMenu = window._obsolete_openMarketMenu_6;
+
+    }, 2000);
+});
+    </script> 
+<script>
+// ==========================================
+// ПОЛНОЕ ВОССТАНОВЛЕНИЕ МЕНЮ 📁 (ВСЕ 18 КНОПОК)
+// ==========================================
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        // 1. Возвращаем кнопку 📁 в нижнюю панель
+        let tabBar = document.querySelector('.tab-bar');
+        if (tabBar && !document.getElementById('folderBtn')) {
+            let btn = document.createElement('button');
+            btn.innerHTML = '📁';
+            btn.className = 'tab matrix-btn';
+            btn.id = 'folderBtn';
+            btn.onclick = () => {
+                if (typeof window.openHardcodedMenu === 'function') window.openHardcodedMenu();
+            };
+            tabBar.appendChild(btn);
+        }
+
+        // 2. ПЕРЕРИСОВЫВАЕМ МЕНЮ С НУЛЯ (Все 18 кнопок)
+        window.openHardcodedMenu = function() {
+            let container = document.getElementById('hardcoded-more-menu');
+            if (!container) return;
+
+            let grid = container.querySelector('div[style*="grid-template-columns"]');
+            if (!grid) return;
+
+            // Очищаем старые кнопки
+            grid.innerHTML = '';
+
+            // Список ВСЕХ функций, которые мы делали
+            const buttons = [
+                { name: 'Арена', icon: '🥊', fn: 'openArenaMenu' },
+                { name: 'Заводы', icon: '🏭', fn: 'openFactoryMenu' },
+                { name: 'Battle Pass', icon: '🎟️', fn: 'openBattlePass' },
+                { name: 'Карточки', icon: '🃏', fn: 'openCardsMenu' },
+                { name: 'Квесты', icon: '📜', fn: 'openQuestMenu' },
+                { name: 'Казино', icon: '🎰', fn: 'openCasinoMenu' },
+                { name: 'Рынок', icon: '💱', fn: 'openMarketMenu' },
+                { name: 'Дерево', icon: '🌳', fn: 'openTreeMenu' },
+                { name: 'Лига', icon: '🏆', fn: 'openLeagueMenu' },
+                { name: 'PvP', icon: '⚔️', fn: 'openPvpMenu' },
+                { name: 'Бонус', icon: '🎁', fn: 'openBonusMenu' },
+                { name: 'Друзья', icon: '👥', fn: 'openFriendsMenu' },
+                { name: 'Скины', icon: '🎨', fn: 'openSkinsMenu' },
+                { name: 'Стата', icon: '📊', fn: 'openStatsMenu' },
+                { name: 'Ачивки', icon: '🏆', fn: 'openAchievementsMenu' },
+                { name: 'Банк', icon: '🏦', fn: 'openBankMenu' },
+                { name: 'Колесо', icon: '🎲', fn: 'openWheelMenu' },
+                { name: 'Инвентарь', icon: '🎒', fn: 'openInventoryMenu' },
+                { name: 'Дроны', icon: '🛸', fn: 'openDronesMenu' },
+                { name: 'Лаборатория', icon: '🧬', fn: 'openLabMenu' }
+            ];
+
+            // Рисуем каждую кнопку
+            buttons.forEach(btn => {
+                let b = document.createElement('button');
+                b.style.cssText = 'padding:15px; border-radius:10px; font-size:12px; font-weight:bold; display:flex; flex-direction:column; align-items:center; gap:5px; height:100px; justify-content:center; background: #000 !important; color: #0f0 !important; border: 2px solid #0f0 !important; cursor:pointer;';
+                b.innerHTML = `<span style="font-size:28px;">${btn.icon}</span><span style="text-align:center;">${btn.name}</span>`;
+                
+                b.onclick = function(e) {
+                    e.preventDefault();
+                    // Пытаемся вызвать функцию, если она есть
+                    if (typeof window[btn.fn] === 'function') {
+                        window[btn.fn]();
+                    } else {
+                        // Если функция переименована (как у нас было), ищем её
+                        let obsoleteName = '_obsolete_' + btn.fn + '_' + Math.floor(Math.random()*10); // Костыль, но попробуем найти
+                        // Просто покажем уведомление, если не нашли
+                        showToast('Раздел ' + btn.name + ' в разработке или скрыт.');
+                    }
+                };
+                grid.appendChild(b);
+            });
+
+            container.style.display = 'flex';
+        };
+
+        // 3. Восстанавливаем старые функции, если они сломались
+        if (typeof window.openFactoryMenu !== 'function') window.openFactoryMenu = window._obsolete_openFactoryMenu_3;
+        if (typeof window.openArenaMenu !== 'function') window.openArenaMenu = window._obsolete_openArenaMenu_11;
+        if (typeof window.openMarketMenu !== 'function') window.openMarketMenu = window._obsolete_openMarketMenu_6;
+
+    }, 2000);
+});
+</script>
